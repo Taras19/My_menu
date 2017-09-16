@@ -104,6 +104,8 @@ var menuElement = document.querySelectorAll(".menu li a");
             var scrollTo = document.querySelector(href).offsetTop;
             //scrollTo=scrollTo-40;
             var step = scrollTo-scrollСurrent;
+
+            /* плавна прокрутка start*/
             if(scrollСurrent < scrollTo && scrollСurrent != documentHeight-windowHeight){
                 function scrollDown(){
                             scrollСurrent = window.pageYOffset || document.documentElement.scrollTop;
@@ -136,6 +138,7 @@ var menuElement = document.querySelectorAll(".menu li a");
                     scrollUp();
                                       
                 }
+                /* плавна прокрутка end*/
                  
                 /* зміна активних пунктів меню при click по пункту меню*/
                 document.querySelector(".menu li.active").classList.remove("active");
