@@ -1,0 +1,123 @@
+body{
+    margin:0;
+    padding-top:40px;
+            
+    }
+nav{
+    background-color:#333;
+    position:fixed;
+    top:0;
+    left:50%;
+    width:100%;
+    max-width:1000px;
+    transform:translateX(-50%);
+    }        
+nav.fixed{
+     position:fixed;
+    top:0;
+    left:50%;
+    width:100%;
+    max-width:1000px;
+    transform:translateX(-50%);
+            
+    }
+
+.menu{
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    }
+.menu::after{
+    content:"";
+    display:table;
+    clear:both;
+    }
+.menu li{
+    float:left;
+    }
+        
+        
+.menu-icon{
+    display:none;
+    position:absolute;
+    top:8px;
+    right:0;
+    }
+.menu li a,
+.menu-icon a{
+    display:inline-block;
+    padding:10px 15px 7px;
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    }
+.menu-icon a{
+    font-size:26px;
+    padding:0 15px;
+    line-height:1em;
+    }
+.menu li.active a{
+    color:red;
+    }
+.menu li a:hover{
+    background-color:#7B7474;
+    }
+.progress-bar{
+    height:3px;
+    position:relative;
+    }
+.progress-bar__in{
+    position:absolute;
+    background-color:red;
+    height:100%;
+    left:0;
+    top:0;
+    }
+.page-container{
+    //min-height:500px;
+    border:1px solid black;
+    max-width:1000px;
+    margin:auto;
+    padding:0 15px;
+    box-sizing:border-box;
+    }
+.page-container h3{
+    margin-top:60px;
+    text-align:center;
+    }
+.page-container__home{
+    background-color:red;
+    }
+.page-container__about{
+    background-color:green;
+    //min-height:700px;
+    }
+.page-container__news{
+    background-color:yellow;
+    //min-height:900px;
+    }
+.page-container__contact{
+    background-color:gray;
+    //min-height:700px;
+    }
+.page-container__next{
+    background-color:greenyellow;
+    //min-height:700px;
+    }
+@media (max-width:680px){
+    .menu li:not(.active){
+        display:none;
+        }
+    .menu-icon{
+        display:block;
+        }
+    .menu.responsiv li{
+        display:block;
+        float:none;
+        }
+    .menu.responsiv li a{
+        display:block;
+        }
+            
+    }
