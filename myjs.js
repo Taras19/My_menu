@@ -12,7 +12,7 @@ var windowHeight = document.documentElement.clientHeight;
 
  /*pageContainer,menuLi буду використовувати для зміни активного стану меню при scroll*/
 var pageContainer = document.querySelectorAll(".page-container");
-var menuLi = document.querySelectorAll(".menu li");
+var menuLi = document.querySelectorAll(".menu li:not(.dropdown)");
 
 /* оновлення даних при зміні орієнтації екрану*/
 window.addEventListener("resize",function(){
@@ -40,6 +40,8 @@ window.addEventListener("resize",function(){
 var menuIcon = document.querySelector(".menu-icon");
     menuIcon.addEventListener("click", function(){
         document.querySelector(".menu").classList.toggle("responsiv");
+        /* закривання submenu*/
+        document.querySelector(".submenu").classList.remove("submenu-open-js");
         if(document.querySelector(".menu").classList.contains("responsiv")){
             document.querySelector(".menu-icon a").innerHTML = "&#215"; 
             }
@@ -56,6 +58,8 @@ window.addEventListener("scroll", function(){
                         
     /*Закривання меню при прокручуванні сторінки*/
     document.querySelector(".menu").classList.remove("responsiv");
+    /* закривання submenu */
+    document.querySelector(".submenu").classList.remove("submenu-open-js");
     /* Зміна іконки при закриванні меню */
     document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
                      
@@ -96,12 +100,15 @@ var menuElement = document.querySelectorAll(".menu li a");
     for(var i = 0; i < menuElement.length; i++){
         menuElement[i].addEventListener("click", function(event){
             document.querySelector(".menu").classList.remove("responsiv");
+            /* закривання submenu */
+            document.querySelector(".submenu").classList.remove("submenu-open-js");
             /* Зміна іконки при закриванні меню */
             document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
             event.preventDefault();
             event.stopPropagation();
             /* отримую href від this*/
             var href = this.getAttribute("href");
+            console.log(href);
             /* визначаю зміщення відносно батька*/
             document.querySelector(href).offsetTop;
             var scrollСurrent = window.pageYOffset || document.documentElement.scrollTop;
@@ -150,5 +157,11 @@ var menuElement = document.querySelectorAll(".menu li a");
             });
 
         }
+
+/* подія для dropdown*/
+var dropdown = document.querySelector(".dropdown");
+    dropdown.addEventListener("click", function(){
+        document.querySelector(".submenu").classList.toggle("submenu-open-js");
+    });
 
     
