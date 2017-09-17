@@ -18,6 +18,7 @@ var menuLi = document.querySelectorAll(".menu li");
 window.addEventListener("resize",function(){
     /* Розмір прокрутки*/
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
     /* Розмір сторінки*/
     documentHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -28,6 +29,9 @@ window.addEventListener("resize",function(){
     /* розмір вікна*/
     windowHeight = document.documentElement.clientHeight;
 
+    /* зміна scroll-bar*/
+    var progressBarIn = document.querySelector(".progress-bar__in");
+    progressBarIn.style.width = scrollTop / ((documentHeight - windowHeight)  / 100)+ "%";
     
 });   
              
@@ -91,7 +95,7 @@ window.addEventListener("scroll", function(){
 var menuElement = document.querySelectorAll(".menu li a");
     for(var i = 0; i < menuElement.length; i++){
         menuElement[i].addEventListener("click", function(event){
-            document.querySelector(".menu").classList.toggle("responsiv");
+            document.querySelector(".menu").classList.remove("responsiv");
             /* Зміна іконки при закриванні меню */
             document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
             event.preventDefault();
