@@ -43,6 +43,8 @@ var menuIcon = document.querySelector(".menu-icon");
 
         /* закривання submenu*/
         document.querySelector(".submenu").classList.remove("submenu-open-js");
+        /* анімація */
+        document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
         if(document.querySelector(".menu").classList.contains("responsiv")){
             document.querySelector(".menu-icon a").innerHTML = "&#215";
             menuIcon.classList.remove("swing");
@@ -65,6 +67,8 @@ window.addEventListener("scroll", function(){
     document.querySelector(".menu").classList.remove("responsiv");
     /* закривання submenu */
     document.querySelector(".submenu").classList.remove("submenu-open-js");
+    /* анімація */
+    document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
     /* Зміна іконки при закриванні меню */
     document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
                      
@@ -159,6 +163,8 @@ var menuElement = document.querySelectorAll(".menu li a");
                 /* зміна активних пунктів меню при click по пункту меню*/
                 document.querySelector(".menu li.active").classList.remove("active");
                this.parentElement.classList.add("active");
+               /* анімація */
+               document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
             
             });
 
@@ -168,6 +174,7 @@ var menuElement = document.querySelectorAll(".menu li a");
 var dropdown = document.querySelector(".dropdown");
     dropdown.addEventListener("click", function(){
         document.querySelector(".submenu").classList.toggle("submenu-open-js");
+        document.querySelector(".dropdown-icon").classList.toggle("fadeInDown");
     });
 
 
