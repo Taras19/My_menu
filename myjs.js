@@ -40,13 +40,18 @@ window.addEventListener("resize",function(){
 var menuIcon = document.querySelector(".menu-icon");
     menuIcon.addEventListener("click", function(){
         document.querySelector(".menu").classList.toggle("responsiv");
+
         /* закривання submenu*/
         document.querySelector(".submenu").classList.remove("submenu-open-js");
         if(document.querySelector(".menu").classList.contains("responsiv")){
-            document.querySelector(".menu-icon a").innerHTML = "&#215"; 
+            document.querySelector(".menu-icon a").innerHTML = "&#215";
+            menuIcon.classList.remove("swing");
+            menuIcon.classList.add("jello"); 
             }
         else{
-            document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
+            document.querySelector(".menu-icon a").innerHTML = "&#8801";
+            menuIcon.classList.remove("jello");
+            menuIcon.classList.add("swing");  
             }
         });
 
@@ -108,9 +113,7 @@ var menuElement = document.querySelectorAll(".menu li a");
             event.stopPropagation();
             /* отримую href від this*/
             var href = this.getAttribute("href");
-            console.log(href);
-            /* визначаю зміщення відносно батька*/
-            document.querySelector(href).offsetTop;
+             /* визначаю зміщення відносно батька*/
             var scrollСurrent = window.pageYOffset || document.documentElement.scrollTop;
             var scrollTo = document.querySelector(href).offsetTop;
             //scrollTo=scrollTo-40;
@@ -118,6 +121,7 @@ var menuElement = document.querySelectorAll(".menu li a");
 
             /* плавна прокрутка start*/
             if(scrollСurrent < scrollTo && scrollСurrent != documentHeight-windowHeight){
+                
                 function scrollDown(){
                             scrollСurrent = window.pageYOffset || document.documentElement.scrollTop;
                             if(scrollСurrent < scrollTo && scrollСurrent != documentHeight-windowHeight){
@@ -130,8 +134,9 @@ var menuElement = document.querySelectorAll(".menu li a");
                                 window.scrollTo(0,scrollTo);
                             }
                         }
+                        
                 scrollDown();
-
+                
                     }
             else{
                     
@@ -147,13 +152,14 @@ var menuElement = document.querySelectorAll(".menu li a");
                                 }
                         }
                     scrollUp();
-                                      
+                                   
                 }
                 /* плавна прокрутка end*/
                  
                 /* зміна активних пунктів меню при click по пункту меню*/
                 document.querySelector(".menu li.active").classList.remove("active");
                this.parentElement.classList.add("active");
+            
             });
 
         }
@@ -164,4 +170,4 @@ var dropdown = document.querySelector(".dropdown");
         document.querySelector(".submenu").classList.toggle("submenu-open-js");
     });
 
-    
+

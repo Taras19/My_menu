@@ -14,18 +14,7 @@ nav{
     min-height:37px;
      
     }
-    /*        
-nav.fixed{
-     position:fixed;
-    top:0;
-    left:50%;
-    width:100%;
-    max-width:1000px;
-    transform:translateX(-50%);
-
-    }
-    */
-
+  
 .menu{
     list-style:none;
     margin:0;
@@ -81,7 +70,6 @@ nav.fixed{
     top:0;
     }
 .page-container{
-    //min-height:500px;
     border:1px solid black;
     max-width:1000px;
     margin:auto;
@@ -97,39 +85,25 @@ nav.fixed{
     }
 .page-container__about{
     background-color:green;
-    //min-height:700px;
     }
 .page-container__news{
     background-color:yellow;
-    //min-height:900px;
     }
 .page-container__contact{
     background-color:gray;
-    //min-height:700px;
     }
 .page-container__next{
     background-color:greenyellow;
-    //min-height:700px;
     }
 .dropdown{
-    //padding:10px 15px 7px;
     color:white;
     font-size:16px;
     position:relative;
-    //border:1px solid green;
 }
 
 .dropdown:hover{
     background-color:#7B7474;
-    //color:red;
 }
-/*
-.dropdown:hover .submenu{
-    display:block;
-    //visibility: visible;
-    //position:static;
-}
-*/
 
 .dropdown-title{
     display:inline-block;
@@ -143,7 +117,6 @@ nav.fixed{
 }
 .submenu{
     display:none;
-    //visibility: hidden;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -151,8 +124,7 @@ nav.fixed{
     left:0;
     top:40px;
     min-width:100%;
-    background-color:#333;//#4A4949
-    //border:1px solid green;
+    background-color:#333;
     z-index:10;
 }
 .submenu.submenu-open-js{
@@ -174,23 +146,7 @@ nav.fixed{
         overflow:auto;
         max-height:100vh;
     }
-    /*
-    .menu li:not(.active){
-        display:none;
-        }
-    /*    
-    .menu .submenu{
-        display:block;
-        position:static;
-    }
-/*
-     .submenu li:not(.active){
-        display:none ;
-
-    }
     
-    */
-
     .menu li{
         display:none;
     }
@@ -228,7 +184,6 @@ nav.fixed{
     }  
     .menu.responsiv .submenu.submenu-open-js{
         display:block;
-        //visibility: visible;
         position:static;
         }
 
