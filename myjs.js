@@ -13,6 +13,8 @@ var windowHeight = document.documentElement.clientHeight;
  /*pageContainer,menuLi буду використовувати для зміни активного стану меню при scroll*/
 var pageContainer = document.querySelectorAll(".page-container");
 var menuLi = document.querySelectorAll(".menu li:not(.dropdown)");
+/* елементи які буду анімувати */
+var wowAll = document.querySelectorAll(".wow");
 
 /* оновлення даних при зміні орієнтації екрану*/
 window.addEventListener("resize",function(){
@@ -97,6 +99,15 @@ window.addEventListener("scroll", function(){
             menuLi[menuLi.length-1].classList.add("active");
             }
 
+        }
+        for(i = 0; i < wowAll.length; i++){
+            var coorWow = wowAll[i].getBoundingClientRect();
+            if(coorWow.top > windowHeight / 2 && coorWow.top < windowHeight){
+                wowAll[i].classList.add("bounce");
+            }
+            else{
+               wowAll[i].classList.remove("bounce"); 
+            }
         }
 
             
