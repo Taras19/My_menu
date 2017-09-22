@@ -114,18 +114,26 @@ window.addEventListener("scroll", function(){
         var coorWow = wowAll[i].getBoundingClientRect();
         //console.log(coorWow.top + " position " + i);
         if( 40 < coorWow.top && coorWow.top < 200 ){
-            wowAll[i].classList.add("bounce");
-            console.log(coorWow.top + " position " + i);
+            //wowAll[i].classList.add("bounce");
+            wowAll[i].classList.add(wowAll[i].getAttribute("data-class"));
+            //console.log(coorWow.top + " position " + i);
             }
         else{
-            wowAll[i].classList.remove("bounce"); 
+            wowAll[i].classList.remove(wowAll[i].getAttribute("data-class")); 
             }
+            /*
         if(scrollTop == documentHeight - windowHeight  ){
-            wowAll[i].classList.remove("bounce");
-            wowAll[wowAll.length-1].classList.add("bounce");
-        }   
-            
+            wowAll[i].classList.remove(wowAll[i].getAttribute("data-class"));
+            wowAll[wowAll.length-1].classList.add(wowAll[wowAll.length-1].getAttribute("data-class"));
+            }   
+            */    
         }
+        if(scrollTop == documentHeight - windowHeight  ){
+            for(i = 0; i < wowAll.length; i++){
+                wowAll[i].classList.remove(wowAll[i].getAttribute("data-class"));
+                }
+            wowAll[wowAll.length-1].classList.add(wowAll[wowAll.length-1].getAttribute("data-class"));
+            }  
 
             
     });
