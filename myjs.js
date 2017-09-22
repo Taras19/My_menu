@@ -49,13 +49,13 @@ var menuIcon = document.querySelector(".menu-icon");
         document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
         if(document.querySelector(".menu").classList.contains("responsiv")){
             document.querySelector(".menu-icon a").innerHTML = "&#215";
-            menuIcon.classList.remove("swing");
+            menuIcon.classList.remove("flash");
             menuIcon.classList.add("jello"); 
             }
         else{
             document.querySelector(".menu-icon a").innerHTML = "&#8801";
             menuIcon.classList.remove("jello");
-            menuIcon.classList.add("swing");  
+            menuIcon.classList.add("flash");  
             }
         });
 
@@ -66,13 +66,13 @@ window.addEventListener("scroll", function(){
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                         
     /*Закривання меню при прокручуванні сторінки*/
-    document.querySelector(".menu").classList.remove("responsiv");
+    //document.querySelector(".menu").classList.remove("responsiv");
     /* закривання submenu */
-    document.querySelector(".submenu").classList.remove("submenu-open-js");
+    //document.querySelector(".submenu").classList.remove("submenu-open-js");
     /* анімація */
-    document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
+    //document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
     /* Зміна іконки при закриванні меню */
-    document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
+    //document.querySelector(".menu-icon a").innerHTML = "&#8801"; 
                      
     /* зміна scroll-bar*/
     var progressBarIn = document.querySelector(".progress-bar__in");
@@ -83,11 +83,18 @@ window.addEventListener("scroll", function(){
         var coor = pageContainer[i].getBoundingClientRect();
         if(coor.bottom <= 40 && menuLi[i].classList.contains("active")){
             menuLi[i].classList.remove("active");
+            /**/
+            //wowAll[i].classList.remove("bounce");
             menuLi[i+1].classList.add("active");
+            /**/
+            //wowAll[i+1].classList.add("bounce");
             }
         if(coor.top >= windowHeight && menuLi[i].classList.contains("active") || coor.top>windowHeight/2.5 && menuLi[i].classList.contains("active")){
             menuLi[i].classList.remove("active");
+            /**/
+            //wowAll[i].classList.remove("bounce");
             menuLi[i-1].classList.add("active");
+            //wowAll[i-1].classList.add("bounce");
             }
                 
         if(scrollTop == 0){
@@ -97,17 +104,27 @@ window.addEventListener("scroll", function(){
         if(scrollTop == documentHeight - windowHeight  ){
             document.querySelector(".menu li.active").classList.remove("active");
             menuLi[menuLi.length-1].classList.add("active");
+            //wowAll[i].classList.remove("bounce");
+            //wowAll[menuLi.length-1].classList.add("bounce");
             }
 
         }
-        for(i = 0; i < wowAll.length; i++){
-            var coorWow = wowAll[i].getBoundingClientRect();
-            if(coorWow.top > windowHeight / 2 && coorWow.top < windowHeight){
-                wowAll[i].classList.add("bounce");
+        
+    for(i = 0; i < wowAll.length; i++){
+        var coorWow = wowAll[i].getBoundingClientRect();
+        //console.log(coorWow.top + " position " + i);
+        if( 59 < coorWow.top && coorWow.top < 101 ){
+            wowAll[i].classList.add("bounce");
+            console.log(coorWow.top + " position " + i);
             }
-            else{
-               wowAll[i].classList.remove("bounce"); 
+        else{
+            wowAll[i].classList.remove("bounce"); 
             }
+        if(scrollTop == documentHeight - windowHeight  ){
+            wowAll[i].classList.remove("bounce");
+            wowAll[wowAll.length-1].classList.add("bounce");
+        }   
+            
         }
 
             
@@ -173,10 +190,11 @@ var menuElement = document.querySelectorAll(".menu li a");
                  
                 /* зміна активних пунктів меню при click по пункту меню*/
                 document.querySelector(".menu li.active").classList.remove("active");
-               this.parentElement.classList.add("active");
-               /* анімація */
-               document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
-            
+                this.parentElement.classList.add("active");
+                /* анімація */
+                document.querySelector(".dropdown-icon").classList.remove("fadeInDown");
+                menuIcon.classList.remove("jello");
+                menuIcon.classList.add("flash");
             });
 
         }
