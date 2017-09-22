@@ -113,7 +113,7 @@ window.addEventListener("scroll", function(){
     for(i = 0; i < wowAll.length; i++){
         var coorWow = wowAll[i].getBoundingClientRect();
         //console.log(coorWow.top + " position " + i);
-        if( 59 < coorWow.top && coorWow.top < 101 ){
+        if( 40 < coorWow.top && coorWow.top < 200 ){
             wowAll[i].classList.add("bounce");
             console.log(coorWow.top + " position " + i);
             }
