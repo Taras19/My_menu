@@ -83,18 +83,11 @@ window.addEventListener("scroll", function(){
         var coor = pageContainer[i].getBoundingClientRect();
         if(coor.bottom <= 40 && menuLi[i].classList.contains("active")){
             menuLi[i].classList.remove("active");
-            /**/
-            //wowAll[i].classList.remove("bounce");
             menuLi[i+1].classList.add("active");
-            /**/
-            //wowAll[i+1].classList.add("bounce");
             }
         if(coor.top >= windowHeight && menuLi[i].classList.contains("active") || coor.top>windowHeight/2.5 && menuLi[i].classList.contains("active")){
             menuLi[i].classList.remove("active");
-            /**/
-            //wowAll[i].classList.remove("bounce");
             menuLi[i-1].classList.add("active");
-            //wowAll[i-1].classList.add("bounce");
             }
                 
         if(scrollTop == 0){
@@ -104,29 +97,23 @@ window.addEventListener("scroll", function(){
         if(scrollTop == documentHeight - windowHeight  ){
             document.querySelector(".menu li.active").classList.remove("active");
             menuLi[menuLi.length-1].classList.add("active");
-            //wowAll[i].classList.remove("bounce");
-            //wowAll[menuLi.length-1].classList.add("bounce");
+
             }
 
         }
         
     for(i = 0; i < wowAll.length; i++){
         var coorWow = wowAll[i].getBoundingClientRect();
-        //console.log(coorWow.top + " position " + i);
+        
         if( 40 < coorWow.top && coorWow.top < 200 ){
-            //wowAll[i].classList.add("bounce");
+            
             wowAll[i].classList.add(wowAll[i].getAttribute("data-class"));
-            //console.log(coorWow.top + " position " + i);
+            
             }
         else{
             wowAll[i].classList.remove(wowAll[i].getAttribute("data-class")); 
             }
-            /*
-        if(scrollTop == documentHeight - windowHeight  ){
-            wowAll[i].classList.remove(wowAll[i].getAttribute("data-class"));
-            wowAll[wowAll.length-1].classList.add(wowAll[wowAll.length-1].getAttribute("data-class"));
-            }   
-            */    
+              
         }
         if(scrollTop == documentHeight - windowHeight  ){
             for(i = 0; i < wowAll.length; i++){
